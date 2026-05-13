@@ -1,6 +1,8 @@
 #include "proc_stat/proc_stat.h"
 #include "udp_client.h"
 
+#define HZ 1
+
 const char* addr = "127.0.0.1";
 unsigned short port = 1234;
 
@@ -36,7 +38,7 @@ int main(int argc, const char *argv[])
     snapshot_t prev = read_stat(proc_stat_fd);
     for (;;)
     {
-        sleep(1);
+        usleep(1000000ul / HZ);
         const snapshot_t curr = read_stat(proc_stat_fd);
     
         double busyPercent = get_busy_percent(&prev.total, &curr.total);
@@ -51,7 +53,6 @@ int main(int argc, const char *argv[])
         }
         prev = curr;
     }
-
 
     fclose(proc_stat_fd);
     close(sockfd);

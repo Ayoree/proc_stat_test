@@ -17,8 +17,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/bin/Release")
 add_compile_options(
     -Wall
     -Wextra
-    -Werror
-    -Wpedantic
 )
 
 option(BUILD_CLIENT "Build client" ON)

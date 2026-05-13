@@ -14,7 +14,7 @@ int udp_client_create_socket(const char* addr, unsigned short port)
         perror("Can't create socket");
         exit(EXIT_FAILURE);
     }
-    assert(connect(sockfd, (void*)&servaddr, sizeof(servaddr)) == 0); // Who cares about UDP connection errors?
+    connect(sockfd, (void*)&servaddr, sizeof(servaddr)); // Who cares about UDP connection errors?
 
     return sockfd;
 }

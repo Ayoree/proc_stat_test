@@ -1,6 +1,5 @@
 #include <QApplication>
-#include "udp_server.h"
-#include "mainwindow.hpp"
+#include "graphwindow.hpp"
 
 unsigned short port = 1234;
 
@@ -20,32 +19,9 @@ int main(int argc, char *argv[])
 
     printf("Port: %u\n", port);
 
-    // int sockfd = udp_server_create_socket(port);
-
-    // printf("Waiting for messages...\n");
-    // udp_client_message_t msg;
-    // for(;;)
-    // {
-    //     const int recvRes = recv(sockfd, &msg, sizeof(msg), 0);
-    //     if (recvRes == -1)
-    //         perror("Error while receiving socket data");
-    //     else if (recvRes != sizeof(msg))
-    //         perror("Wrong message format");
-    //     else
-    //     {
-    //         if (msg.core_num == USHRT_MAX)
-    //             printf("Total: %.2f\n", msg.percent);
-    //         else
-    //             printf("\tCore %u: %.2f\n", msg.core_num, msg.percent);
-    //         fflush(stdout);
-    //     }
-    // }
-
     QApplication a(argc, argv);
-    MainWindow w;
+    GraphWindow w(port);
     w.show();
     
     return a.exec();
-
-    return 0;
 }
