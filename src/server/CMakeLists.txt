@@ -1,6 +1,9 @@
 project(Server)
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 find_package(Qt6 REQUIRED Core Widgets PrintSupport)
 
 file(GLOB_RECURSE SERVER_SOURCES CONFIGURE_DEPENDS "*.cpp")

@@ -7771,4 +7771,3 @@ private:
 
 
 #endif // QCUSTOMPLOT_H
-
