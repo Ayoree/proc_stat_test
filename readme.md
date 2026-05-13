@@ -1,0 +1,1 @@
+There are 2 executable targets: `proc_stat_client` and `proc_stat_server`. To build both of them use provided `build.sh` script. Executables will be at `build/bin/Release` folder. That's all.
